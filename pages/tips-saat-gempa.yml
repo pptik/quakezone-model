@@ -1,0 +1,18 @@
+_id:
+  "$oid": 5d81bee908c7135278efb68f
+key: tips-saat-gempa
+controller: Content
+action: default
+titleStr: Tips Saat Gempa
+createdAt:
+  "$date":
+    "$numberLong": '1568784105252'
+updatedAt:
+  "$date":
+    "$numberLong": '1568870143747'
+__v:
+  "$numberInt": '0'
+project:
+  "$oid": 5d7dd03c74281342a49bfdaf
+icon: paw
+iconSet: Ionicons

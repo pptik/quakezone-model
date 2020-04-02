@@ -1,0 +1,18 @@
+_id:
+  "$oid": 5d8280bfe21602118cf78234
+key: quakes
+controller: Content
+action: default
+titleStr: Earthquakes
+iconSet: Ionicons
+icon: wifi
+createdAt:
+  "$date":
+    "$numberLong": '1568833727285'
+updatedAt:
+  "$date":
+    "$numberLong": '1568870143747'
+__v:
+  "$numberInt": '0'
+project:
+  "$oid": 5d7dd03c74281342a49bfdaf

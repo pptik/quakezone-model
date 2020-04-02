@@ -1,0 +1,23 @@
+_id:
+  "$oid": 5d88ac20ce89c75cc8f23d85
+iconSet: Ionicons
+titleExpr: tsunamiRunup_panel.data && `${tsunamiRunup_panel.data.tsunamiRunup.locationName}
+  - Tsunami Runups`
+action: detail
+icon: water
+titleStr: Tsunami Runup Detail
+controller: Content
+key: "[tsunamiRunupId]"
+createdAt:
+  "$date":
+    "$numberLong": '1569238048151'
+updatedAt:
+  "$date":
+    "$numberLong": '1569238048155'
+__v:
+  "$numberInt": '0'
+parentPath: tsunami-runups
+  # parent:
+#   "$oid": 5d84af1d5e93156c683d3c08
+project:
+  "$oid": 5d7dd03c74281342a49bfdaf

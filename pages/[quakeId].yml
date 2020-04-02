@@ -1,0 +1,21 @@
+_id:
+  "$oid": 5d851a8af9208205f4cceea2
+key: "[quakeId]"
+controller: Content
+action: detail
+titleStr: Quake detail
+icon: wifi
+iconSet: Ionicons
+createdAt:
+  "$date":
+    "$numberLong": '1569004170565'
+updatedAt:
+  "$date":
+    "$numberLong": '1569234324851'
+__v:
+  "$numberInt": '0'
+parent:
+  "$oid": 5d8280bfe21602118cf78234
+project:
+  "$oid": 5d7dd03c74281342a49bfdaf
+titleExpr: quakeDetail_panel.data && `${quakeDetail_panel.data.quake.name} - Earthquakes`

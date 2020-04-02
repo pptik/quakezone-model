@@ -1,0 +1,18 @@
+_id:
+  "$oid": 5d831dc0e9d51209dc4931e0
+key: tsunami-sources
+controller: Content
+action: default
+titleStr: Tsunami Sources
+icon: water
+iconSet: Ionicons
+createdAt:
+  "$date":
+    "$numberLong": '1568873920688'
+updatedAt:
+  "$date":
+    "$numberLong": '1568972055638'
+__v:
+  "$numberInt": '0'
+project:
+  "$oid": 5d7dd03c74281342a49bfdaf

@@ -1,0 +1,22 @@
+_id:
+  "$oid": 5d889e9cce89c75cc8f23a62
+key: "[tsunamiSourceId]"
+controller: Content
+action: detail
+titleExpr: tsunamiSource_panel.data && `${tsunamiSource_panel.data.tsunamiSource.locationName}
+  - Tsunami Sources`
+icon: water
+iconSet: Ionicons
+createdAt:
+  "$date":
+    "$numberLong": '1569234588200'
+updatedAt:
+  "$date":
+    "$numberLong": '1569236824859'
+__v:
+  "$numberInt": '0'
+project:
+  "$oid": 5d7dd03c74281342a49bfdaf
+titleStr: Tsunami Source Detail
+parent:
+  "$oid": 5d831dc0e9d51209dc4931e0

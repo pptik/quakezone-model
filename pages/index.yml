@@ -1,0 +1,16 @@
+_id:
+  "$oid": 5d810e6918695013f093fc81
+key: index
+titleStr: QuakeZone
+controller: Content
+action: default
+createdAt:
+  "$date":
+    "$numberLong": '1568738921637'
+updatedAt:
+  "$date":
+    "$numberLong": '1569231761798'
+__v:
+  "$numberInt": '0'
+project:
+  "$oid": 5d7dd03c74281342a49bfdaf

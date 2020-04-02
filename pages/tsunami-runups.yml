@@ -1,0 +1,18 @@
+_id:
+  "$oid": 5d84af1d5e93156c683d3c08
+key: tsunami-runups
+controller: Content
+action: default
+titleStr: Tsunami Runups
+icon: water
+iconSet: Ionicons
+createdAt:
+  "$date":
+    "$numberLong": '1568976669136'
+updatedAt:
+  "$date":
+    "$numberLong": '1568976669159'
+__v:
+  "$numberInt": '0'
+project:
+  "$oid": 5d7dd03c74281342a49bfdaf
