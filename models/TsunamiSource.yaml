@@ -1,0 +1,447 @@
+name: TsunamiSource
+description: |
+  Information on the source of the tsunami.
+
+  ### Information Sources
+
+  1. `noaa`: [NOAA NGDC/WDS](https://www.ngdc.noaa.gov/hazard/tsu_db.shtml)
+
+  ### Variable Definitions for the Tsunami Source Events
+
+  - ID
+  - Date: Year, Month, Day, Hour, Minute, Second
+  - Location: Latitude, Longitude, Location Name, State, Country, Region Code
+  - Cause Code for the Tsunami
+  - If the tsunami source was an Earthquake:
+    - Focal Depth,
+    - Primary Magnitude
+  - Tsunami Source Event Measurements:
+    - Tsunami Event Validity
+    - Maximum Water Height
+    - Tsunami Magnitudes: Abe, Iida-Imamura
+    - Tsunami Intensity: Soloviev
+    - Tsunami Warning Status
+  - Tsunami Effects:
+    - Number of Deaths, Deaths Description:
+    - Number of Missing, Missing Description
+    - Number of Injuries, Injuries Description
+    - Damage Millions Dollars, Damage Description
+    - Number of Houses Destroyed, Houses Destroyed Description
+    - Number of Houses Damaged, Houses Damaged Description
+  - Tsunami and Source Event Total Effects:
+    - Total Number of Deaths, Total Deaths Description
+    - Total Number of Missing, Total Missing Description
+    - Total Number of Injuries, Total Injuries Description
+    - Total Damage in Millions Dollars Total Damage Description
+    - Total Number of Houses Destroyed, Total Houses Destroyed Description
+    - Total Number of Houses Damaged, Total Houses Damaged Description
+properties:
+  - name: year
+    title: Year
+    type: integer
+    description: Year of tsunami source event
+  - name: month
+    title: Month
+    type: integer
+    description: Month of tsunami source event
+  - name: day
+    title: Day
+    type: integer
+    description: Day of tsunami source event
+  - name: hour
+    title: Hour
+    type: integer
+    description: Hour of tsunami source event
+  - name: minute
+    title: Minute
+    type: integer
+    description: Hour of tsunami source event
+  - name: second
+    title: Second
+    type: integer
+    description: Second of tsunami source event
+  - name: eventValidity
+    title: Event validity
+    type: integer
+    description: |
+      Valid values: -1 to 4
+
+      Validity of the actual tsunami occurrence is indicated by a numerical rating of the reports of that event:
+
+      - 4 = definite tsunami
+      - 3 = probable tsunami
+      - 2 = questionable tsunami
+      - 1 = very doubtful tsunami
+      - 0 = event that only caused a seiche or disturbance in an inland river
+      - -1 = erroneous entry
+  - name: causeCode
+    title: Tsunami source
+    type: integer
+    description: |
+      Valid values: 0 to 11
+
+      The source of the tsunami:
+      
+      - 0 = Unknown
+      - 1 = Earthquake
+      - 2 = Questionable Earthquake
+      - 3 = Earthquake and Landslide
+      - 4 = Volcano and Earthquake
+      - 5 = Volcano, Earthquake, and Landslide
+      - 6 = Volcano
+      - 7 = Volcano and Landslide
+      - 8 = Landslide
+      - 9 = Meteorological
+      - 10 = Explosion
+      - 11 = Astronomical Tide    
+  - name: focalDepth
+    title: Focal depth (km)
+    type: double
+    description: |
+      Valid values: 0 to 700 km. The depth of the earthquake is given in kilometers.    
+  - name: primaryMagnitude
+    title: Primary magnitude
+    type: double
+    description: |
+      Valid values: 0.0 to 9.9
+
+      The value in this column contains the primary earthquake magnitude. Magnitude measures the energy released at the source of the earthquake. Magnitude is determined from measurements on seismographs. For pre-instrumental events, the magnitudes are derived from intensities. There are several different scales for measuring earthquake magnitudes. The primary magnitude is chosen from the available magnitude scales in this order:
+      
+      - Mw Magnitude
+      - Ms Magnitude
+      - Mb Magnitude
+      - Ml Magnitude
+      - Mfa Magnitude
+      - Unknown Magnitude    
+  - name: country
+    title: Country
+    type: string
+    description: |
+      The Country where the tsunami source occurred (For example enter: Japan or Russia)    
+  - name: state
+    title: State
+    type: string
+    description: The two-letter State or Province abbreviation where the Earthquake occurred.
+  - name: locationName
+    title: Location
+    type: string
+    description: |
+      The Country, State, Province or Island where the tsunami source occurred (For example enter: Japan or Honshu)
+
+      This is only an approximate geographic location. Events prior to 1900 were not instrumentally located, therefore, the location given is based on the latitude and longitude of the city where the maximum effects occurred. If there are different spellings of a city name the additional names are in parentheses.    
+  - name: latitude
+    title: Latitude
+    type: double
+  - name: longitude
+    title: Longitude
+    type: double
+  - name: regionCode
+    title: Region code
+    type: integer
+    description: |
+      Regional boundaries are based on frequency of occurrence of tsunamigenic events, geophysical relations, risk in distant areas and political justification.
+
+      - 77 =	West Coast of Africa
+      - 78 =	Central Africa
+      - 73 =	Northeast Atlantic Ocean
+      - 72 =	Northwest Atlantic Ocean
+      - 70 =	Southeast Atlantic Ocean
+      - 71 =	Southwest Atlantic Ocean
+      - 75 =	E. Coast USA and Canada, St Pierre and Miquelon
+      - 76 =	Gulf of Mexico
+      - 74 =	Caribbean Sea
+      - 40 =	Black Sea and Caspian Sea
+      - 50 =	Mediterranean Sea
+      - 30 =	Red Sea and Persian Gulf
+      - 60 =	Indian Ocean (including west coast of Australia)
+      - 87 =	Alaska (including Aleutian Islands)
+      - 84 =	China, North and South Korea, Philippines, Taiwan
+      - 81 =	E. Coast Australia, New Zealand, South Pacific Is.
+      - 80 =	Hawaii, Johnston Atoll, Midway I
+      - 83 =	E. Indonesia (Pacific Ocean) and Malaysia
+      - 82 =	New Caledonia, New Guinea, Solomon Is., Vanuatu
+      - 86 =	Kamchatka and Kuril Islands
+      - 85 =	Japan
+      - 88 =	West Coast of North and Central America
+      - 89 =	West Coast of South America    
+  - name: maxWaterHeight
+    title: Max. water height
+    type: double
+    description: |
+      The maximum water height above sea level in meters for this event. If the type of measurement of the runup was a:
+
+      - Tide Gauge - half of the maximum height (minus the normal tide)of a tsunami wave recorded at the coast by a tide gauge.
+      - Runup Height - the maximum elevation the wave reaches at the maximum inundation.
+  - name: tsunamiMagnitudeAbe
+    title: Tsunami magnitude (Abe)
+    type: double
+    description: |
+      Valid values: -5 to 10
+      Abe defined two different tsunami magnitude amplitudes. His first tsunami magnitude (1979) is:
+      
+      Mt = logH + B
+      
+      where H is the maximum single crest or trough amplitude of the tsunami waves (in meters) and B a constant. The second definition (1981) is:
+      
+      Mt = logH + alogR + D
+      
+      where R is the distance in km from the earthquake epicenter to the tide station along the shortest oceanic path, and a and D are constants.    
+  - name: tsunamiMagnitudeIida
+    title: Tsunami magnitude (Iida-Imamura)
+    type: double
+    description: |
+      Valid values: -5 to 10
+      Tsunami magnitude (M) is defined by Iida and others (1967) as
+      
+      M = log2h, where "h" is the maximum runup height of the wave.
+  - name: tsunamiIntensitySoloviev
+    title: Tsunami intensity (Soloviev)
+    type: double
+    description: |
+      Valid values: -5 to 10
+      Tsunami intensity is defined by Soloviev and Go (1974) as
+      
+      I = log2(21/2 * h), where "h" is the maximum runup height of the wave.   
+  - name: warningStatus
+    title: Warning status
+    type: double
+    description: |
+      Valid values: -1 to 4
+      Warning Status of the Tsunami:
+      
+      - -1=Status unknown
+      - 0=no warning issued
+      - 1=PTW - Pacific-wide Tsunami Warning issued by PTWC
+      - 2=RTW - Regional Tsunami Warning issued by PTWC for areas having no TWS
+      - 3=LTW - Local Tsunami Warning issued by regional or national TWC
+      - 4=TIB - Tsunami Information or Attention Bulletin issued by any agency    
+  - name: deaths
+    title: Number of deaths from the tsunami
+    type: integer
+    description: |
+      If an actual number of deaths due to the tsunami is known, enter a number in this search field. If only a description is available such as "few", "some", or "many", the database can be searched using the search field: Death Description    
+  - name: deathsDescription
+    title: Description of deaths from the tsunami
+    type: integer
+    description: |
+      Valid values: 0 to 4
+      When a description was found in the historical literature instead of an actual number of deaths, this value was coded and listed in the Deaths De column. If the actual number of deaths was listed, a descriptor was also added for search purposes.
+      
+      - 0 = None
+      - 1 = Few (~1 to 50 deaths)
+      - 2 = Some (~51 to 100 deaths)
+      - 3 = Many (~101 to 1000 deaths)
+      - 4 = Very Many (~1001 or more deaths)
+  - name: missing
+    title: Number of missing from the tsunami
+    type: integer
+    description: Whenever possible, numbers of Missing from the tsunami are listed.
+  - name: missingDescription
+    title: Description of missing from the tsunami
+    type: integer
+    description: |
+      Valid values: 0 to 4
+
+      When a description was found in the historical literature instead of an actual number of missing, this value was coded and listed in the Missing De column. If the actual number of missing was listed, a descriptor was also added for search purposes.
+      
+      - 0 = None
+      - 1 = Few (~1 to 50 missing)
+      - 2 = Some(~51 to 100 missing)
+      - 3 = Many (~101 to 1000 missing)
+      - 4 = Very Many (~1001 or more missing)    
+  - name: injuries
+    title: Number of injuries from the tsunami
+    type: integer
+    description: Whenever possible, numbers of injuries from the tsunami are listed.
+  - name: injuriesDescription
+    title: Description of injuries from the tsunami
+    type: integer
+    description: |
+      Valid values: 0 to 4
+
+      When a description was found in the historical literature instead of an actual number of injuries, this value was coded and listed in the Injuries De column. If the actual number of injuries was listed, a descriptor was also added for search purposes.
+      
+      - 0 = None
+      - 1 = Few (~1 to 50 injuries)
+      - 2 = Some(~51 to 100 injuries)
+      - 3 = Many (~101 to 1000 injuries)
+      - 4 = Very Many (~1001 or more injuries)    
+  - name: damageMillionsDollars
+    title: Damage (millions of US Dollars) from the tsunami
+    type: double
+    description: |
+      The value in the Damage column should be multiplied by 1,000,000 to obtain the actual dollar amount.
+
+      If an actual number of dollars in damage due to the tsunami is known, enter a number in this search field. If only a description is available such as "limited", "moderate", or "severe", the database can be searched using the search field:Damage Description
+      
+      When a dollar amount for damage was found in the literature, it was listed in the Damage column in millions of U.S. dollars. The dollar value listed is the value at the time of the event. To convert the damage to current dollar values, please use the [Consumer Price Index Calculator](https://www.ngdc.noaa.gov/nndc/DescribeField.jsp?dataset=101650&search_look=77&field_name=tsevent_vsqp.DAMAGE_MILLIONS_DOLLARS). Monetary conversion tables for the time of the event were used to convert foreign currency to U.S. dollars.  
+  - name: damageDescription
+    title: Description of damage from the tsunami
+    type: integer
+    description: |
+      Valid values: 0 to 4
+
+      For those events not offering a monetary evaluation of damage, the following five-level scale was used to classify damage (1990 dollars) and was listed in the Damage Description column. If the **actual dollar amount of damage was listed**, a descriptor was also added for search purposes.
+      
+      - 0 = NONE
+      - 1 = LIMITED (roughly corresponding to less than $1 million)
+      - 2 = MODERATE (~$1 to $5 million)
+      - 3 = SEVERE (~>$5 to $24 million)
+      - 4 = EXTREME (~$25 million or more)
+      
+      When possible, a rough estimate was made of the dollar amount of damage based upon the description provided, in order to choose the damage category. In many cases, only a single descriptive term was available. These terms were converted to the damage categories based upon the authors apparent use of the term elsewhere. In the absence of other information, LIMITED is considered synonymous with slight, minor, and light, SEVERE as synonymous with major, extensive, and heavy, and EXTREME as synonymous with catastrophic.
+      
+      Note: The descriptive terms relate approximately to current dollar values.    
+  - name: housesDestroyed
+    title: Number of houses destroyed by the tsunami
+    type: integer
+    description: Whenever possible, number of houses destroyed by the tsunami are listed.
+  - name: housesDestroyedDescription
+    title: Description of houses destroyed by the tsunami
+    type: integer
+    description: |
+      Valid values: 0 to 4
+
+      For those events not offering an exact number of houses destroyed, the following four-level scale was used to classify the destruction and was listed in the Houses Destroyed De column. If the actual number of houses destroyed was listed, a descriptor was also added for search purposes.
+      
+      - 0 = None
+      - 1 = Few (~1 to 50 houses)
+      - 2 = Some (~51 to 100 houses)
+      - 3 = Many (~101 to 1000 houses)
+      - 4 = Very Many (~1001 or more houses)    
+  - name: housesDamaged
+    title: Number of houses damaged by the tsunami
+    type: integer
+    description: |
+      Whenever possible, number of houses damaged by the tsunami are listed.    
+  - name: housesDamagedDescription
+    title: Description of houses damaged by the tsunami
+    type: integer
+    description: |
+      Valid values: 0 to 4
+
+      For those events not offering an exact number of houses damaged, the following four-level scale was used to classify the damage and was listed in the Houses Damaged De column. If the actual number of houses damaged was listed, a descriptor was also added for search purposes.
+      
+      - 0 = None
+      - 1 = Few (~1 to 50 houses)
+      - 2 = Some (~51 to 100 houses)
+      - 3 = Many (~101 to 1000 houses)
+      - 4 = Very Many (~1001 or more houses)    
+  - name: totalDeaths
+    title: Total number of deaths from the tsunami and source event
+    type: integer
+    description: Whenever possible, numbers of deaths from the tsunami and source event are listed.    
+  - name: totalDeathsDescription
+    title: Description of deaths from the tsunami and the source event
+    type: integer
+    description: |
+      Valid values: 0 to 4
+
+      When a description was found in the historical literature instead of an actual number of deaths, this value was coded and listed in the Deaths De column. If the actual number of deaths was listed, a descriptor was also added for search purposes.
+      
+      - 0 = None
+      - 1 = Few (~1 to 50 deaths)
+      - 2 = Some (~51 to 100 deaths)
+      - 3 = Many (~101 to 1000 deaths)
+      - 4 = Very Many (~1001 or more deaths)
+  - name: totalMissing
+    title: Total number of missing from the tsunami and the source event
+    type: integer
+  - name: totalMissingDescription
+    title: Description of missing from the tsunami and the source event
+    type: integer
+    description: |
+      Valid values: 0 to 4
+
+      When a description was found in the historical literature instead of an actual number of missing, this value was coded and listed in the Missing Description column. If the actual number of missing was listed, a descriptor was also added for search purposes.
+      
+      - 0 = None
+      - 1 = Few (~1 to 50 missing)
+      - 2 = Some(~51 to 100 missing)
+      - 3 = Many (~101 to 1000 missing)
+      - 4 = Very Many (~1001 or more missing)
+  - name: totalInjuries
+    title: Total Number of injuries from the tsunami and the source event
+    type: integer
+    description: Whenever possible, numbers of injuries from the tsunami and source event are listed.
+  - name: totalInjuriesDescription
+    title: Description of injuries from the tsunami and the source event
+    type: integer
+    description: |
+      Valid values: 0 to 4
+
+      When a description was found in the historical literature instead of an actual number of injuries, this value was coded and listed in the Injuries De column. If the actual number of injuries was listed, a descriptor was also added for search purposes.
+      
+      - 0 = None
+      - 1 = Few (~1 to 50 injuries)
+      - 2 = Some(~51 to 100 injuries)
+      - 3 = Many (~101 to 1000 injuries))
+      - 4 = Very Many (~1001 or more injuries)
+  - name: totalDamageMillionsDollars
+    title: Total damage in millions of dollars from the tsunami and the source event
+    type: double
+    description: |
+      The value in the Damage column should be multipled by 1,000,000 to obtain the actual dollar amount.
+
+      When a dollar amount for damage was found in the literature, it was listed in the Damage column in millions of U.S. dollars. The dollar value listed is the value at the time of the event. To convert the damage to current dollar values, please use the [Consumer Price Index Calculator](https://www.ngdc.noaa.gov/nndc/DescribeField.jsp?dataset=101650&search_look=77&field_name=tsevent_vsqp.DAMAGE_MILLIONS_DOLLARS_TOTAL). Monetary conversion tables for the time of the event were used to convert foreign currency to U.S. dollars.    
+  - name: totalDamageMillionsDollarsDescription
+    title: Description of damage from the tsunami and the source event
+    type: integer
+    description:  |
+      Valid values: 0 to 4
+
+      For those events not offering a monetary evaluation of damage, the following five-level scale was used to classify damage (1990 dollars) and was listed in the Damage De column. If the actual dollar amount of damage was listed, a descriptor was also added for search purposes.
+      
+      - 0 = NONE
+      - 1 = LIMITED (roughly corresponding to less than $1 million)
+      - 2 = MODERATE (~$1 to $5 million)
+      - 3 = SEVERE (~$5 to $25 million)
+      - 4 = EXTREME (~$25 million or more)
+      
+      When possible, a rough estimate was made of the dollar amount of damage based upon the description provided, in order to choose the damage category. In many cases, only a single descriptive term was available. These terms were converted to the damage categories based upon the authors apparent use of the term elsewhere. In the absence of other information, LIMITED is considered synonymous with slight, minor, and light, SEVERE as synonymous with major, extensive, and heavy, and EXTREME as synonymous with catastrophic.
+      
+      Note: The descriptive terms relate approximately to current dollar values.
+  - name: totalHousesDestroyed
+    title: Total number of houses destroyed
+    type: integer
+    description: Whenever possible, number of houses destroyed by the tsunami and the source event are listed.
+  - name: totalHousesDestroyedDescription
+    title: Total houses destroyed description
+    type: integer
+    description: |
+      Valid values: 0 to 4
+
+      For those events not offering an exact number of houses destroyed, the following four-level scale was used to classify the destruction and was listed in the Houses Destroyed De column. If the actual number of houses destroyed was listed, a descriptor was also added for search purposes.
+      
+      - 0 = None
+      - 1 = Few (~1 to 50 houses)
+      - 2 = Some (~51 to 100 houses)
+      - 3 = Many (~101 to 1000 houses)
+      - 4 = Very Many (~1001 or more houses)
+  - name: totalHousesDamaged
+    title: Total number of houses damaged
+    type: integer
+    description: Whenever possible, number of houses damaged by the tsunami and the source event are listed.
+  - name: totalHousesDamagedDescription
+    title: Total houses damaged description
+    type: integer
+    description: |
+      Valid values: 0 to 4
+
+      For those events not offering an exact number of houses damaged, the following four-level scale was used to classify the damage and was listed in the **Houses Damaged Description** column. If the actual number of houses damaged was listed, a descriptor was also added for search purposes.
+      
+      - 0 = None
+      - 1 = Few (~1 to 50 houses)
+      - 2 = Some (~51 to 100 houses)
+      - 3 = Many (~101 to 1000 houses)
+      - 4 = Very Many (~1001 or more houses)    
+  - name: noaaTsunamiEventId
+    title: NOAA tsunami event ID
+    type: integer
+    description: |
+      Tsunami source event ID according to `noaa`: [NOAA NGDC/WDS](https://www.ngdc.noaa.gov/hazard/tsu_db.shtml).
+  - name: infoSource
+    title: Information source
+    type: string
+    description: |
+      1. `noaa`: [NOAA NGDC/WDS](https://www.ngdc.noaa.gov/hazard/tsu_db.shtml)

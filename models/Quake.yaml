@@ -1,0 +1,69 @@
+name: Quake
+description:
+properties:
+  - name: name
+    title: name
+    type: string
+  - name: usgsId
+    title: USGS ID
+    type: string
+  - name: usgsName
+    title: USGS name
+    type: string
+  - name: originTime
+    title: Origin time
+    type: datetime
+  - name: usgsOriginTime
+    title: Origin time (USGS)
+    type: datetime
+  - name: irisOriginTime
+    title: Origin time (IRIS)
+    type: datetime
+  - name: noaaLocation
+    title: Location (NOAA)
+    type: string
+  - name: noviantyRuptureDuration
+    title: Rupture duration (Novianty)
+    type: double
+  - name: noviantyPWaveDominantPeriod
+    title: P-wave dominant period (Novianty)
+    type: double
+  - name: noviantyT0xtd
+    title: T0 × Td (Novianty)
+    type: double
+  - name: noviantyMw
+    title: Mw (Novianty)
+    type: double
+  - name: mw
+    title: Mw
+    type: double
+  - name: usgsMw
+    title: Mw (USGS)
+    type: double
+  - name: irisMw
+    title: Mw (IRIS)
+    type: double
+  - name: noaaTsunami
+    title: Tsunami potential (NOAA)
+    type: boolean
+  - name: noaaTsunamiEventId
+    title: NOAA tsunami event ID
+    type: integer
+  - name: unknown1
+    title: Unknown 1
+    type: integer
+  - name: usgsDepth
+    title: Depth (USGS)
+    type: double
+  - name: collectionName
+    title: Collection name
+    type: string
+  - name: collectionPos
+    title: Collection pos
+    type: integer
+  - name: usgsEpicenter
+    title: Epicenter (USGS)
+    type: GeoPoint
+  - name: tsunamiSourceId
+    title: Tsunami source ID
+    type: string
