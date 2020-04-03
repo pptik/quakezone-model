@@ -1,5 +1,6 @@
-_id:
-  "$oid": 5d831dc0e9d51209dc4931e0
+# _id:
+#   "$oid": 5d831dc0e9d51209dc4931e0
+kind: Singleton
 key: tsunami-sources
 controller: Content
 action: default
@@ -14,5 +15,79 @@ updatedAt:
     "$numberLong": '1568972055638'
 __v:
   "$numberInt": '0'
-project:
-  "$oid": 5d7dd03c74281342a49bfdaf
+# project:
+#   "$oid": 5d7dd03c74281342a49bfdaf
+pagebricks:
+  - areabrickKey: ItemGridStandard
+    bindings: []
+    createdAt: '2019-09-19T07:46:19.078Z'
+    itemMapperFields:
+      - field: title
+        sourceField: locationName
+        expr: '`${it.latitude},${it.longitude} - ${it.locationName} ${it.year}-${it.month}-${it.day}`'
+      - field: subheader
+        sourceField: primaryMagnitude
+      - field: icon
+        expr: '"water"'
+      - field: iconBackground
+        expr: 'it.primaryMagnitude >= 7 ? "red" : "silver"'
+      - field: linkTo
+        expr: '`/tsunami-sources/${it.id}`'
+    key: tsunamiSources
+    queryBindings: []
+    updatedAt: '2019-09-23T10:32:58.681Z'
+    dataExpr: tsunamiSources3
+    query: |-
+      {
+        tsunamiSources3(filter:{limit: 100, order:"year DESC"}) {
+          causeCode
+          country
+          damageDescription
+          damageMillionsDollars
+          day
+          deaths
+          deathsDescription
+          eventValidity
+          focalDepth
+          hour
+          housesDamaged
+          housesDamagedDescription
+          housesDestroyed
+          housesDestroyedDescription
+          id
+          injuries
+          injuriesDescription
+          latitude
+          locationName
+          longitude
+          maxWaterHeight
+          minute
+          missing
+          missingDescription
+          month
+          primaryMagnitude
+          regionCode
+          second
+          state
+          totalDamageMillionsDollars
+          totalDamageMillionsDollarsDescription
+          totalDeaths
+          totalDeathsDescription
+          totalHousesDamaged
+          totalHousesDamagedDescription
+          totalHousesDestroyed
+          totalHousesDestroyedDescription
+          totalInjuries
+          totalInjuriesDescription
+          totalMissing
+          totalMissingDescription
+          warningStatus
+          year
+          tsunamiMagnitudeAbe
+          tsunamiMagnitudeIida
+          tsunamiIntensitySoloviev
+          noaaTsunamiEventId
+          infoSource
+       } 
+      }      
+    queryModelKey: TsunamiSource

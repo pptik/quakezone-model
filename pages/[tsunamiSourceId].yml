@@ -1,5 +1,6 @@
-_id:
-  "$oid": 5d889e9cce89c75cc8f23a62
+# _id:
+#   "$oid": 5d889e9cce89c75cc8f23a62
+kind: Route
 key: "[tsunamiSourceId]"
 controller: Content
 action: detail
@@ -15,8 +16,316 @@ updatedAt:
     "$numberLong": '1569236824859'
 __v:
   "$numberInt": '0'
-project:
-  "$oid": 5d7dd03c74281342a49bfdaf
+# project:
+#   "$oid": 5d7dd03c74281342a49bfdaf
 titleStr: Tsunami Source Detail
-parent:
-  "$oid": 5d831dc0e9d51209dc4931e0
+parentPath: tsunami-sources
+# parent:
+#   "$oid": 5d831dc0e9d51209dc4931e0
+pagebricks:
+  - key: tsunamiSource_panel
+    areabrickKey: tsunamiSource_panel
+    queryModel: TsunamiSource
+    query: |-
+      query TsunamiSourceDetail($id: String!) {
+        tsunamiSource: tsunamiSources(id: $id) {
+          causeCode
+          country
+          damageDescription
+          damageMillionsDollars
+          day
+          deaths
+          deathsDescription
+          eventValidity
+          focalDepth
+          hour
+          housesDamaged
+          housesDamagedDescription
+          housesDestroyed
+          housesDestroyedDescription
+          id
+          injuries
+          injuriesDescription
+          latitude
+          locationName
+          longitude
+          maxWaterHeight
+          minute
+          missing
+          missingDescription
+          month
+          primaryMagnitude
+          regionCode
+          second
+          state
+          totalDamageMillionsDollars
+          totalDamageMillionsDollarsDescription
+          totalDeaths
+          totalDeathsDescription
+          totalHousesDamaged
+          totalHousesDamagedDescription
+          totalHousesDestroyed
+          totalHousesDestroyedDescription
+          totalInjuries
+          totalInjuriesDescription
+          totalMissing
+          totalMissingDescription
+          warningStatus
+          year
+          tsunamiMagnitudeAbe
+          tsunamiMagnitudeIida
+          tsunamiIntensitySoloviev
+          noaaTsunamiEventId
+          infoSource
+       } 
+      }
+    dataExpr: tsunamiSource
+    queryBindings:
+      - field: id
+        routerParam: tsunamiSourceId
+    children:
+      - key: locationName
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Location
+          - field: value
+            queryField: locationName
+      - key: epicenter
+        areabrickKey: GeoPointEntry
+        bindings:
+          - field: label
+            stringValue: Tsunami source location
+          - field: featureLat
+            queryField: latitude
+          - field: featureLon
+            queryField: longitude
+          - field: featureName
+            queryField: locationName
+          - field: mapboxApiAccessToken
+            expr: appConfig.MAPBOX_API_ACCESS_TOKEN
+      - key: causeCode
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Cause
+          - field: value
+            queryField: causeCode
+      - key: country
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Country
+          - field: value
+            queryField: country
+      - key: damageMillionsDollars
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Damage
+          - field: value
+            queryField: damageMillionsDollars
+          - field: prefix
+            stringValue: USD
+          - field: suffix
+            stringValue: M
+      - key: damageDescription
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Damage description
+          - field: value
+            queryField: damageDescription
+      - key: originTime
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Origin time
+          - field: value
+            queryField: originTime
+      - key: primaryMagnitude
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Primary magnitude
+          - field: value
+            queryField: primaryMagnitude
+      - key: focalDepth
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Focal depth
+          - field: value
+            queryField: focalDepth
+          - field: suffix
+            stringValue: km
+      - key: maxWaterHeight
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Max water height
+          - field: value
+            queryField: maxWaterHeight
+          - field: suffix
+            stringValue: m
+      - key: warningStatus
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Warning status
+          - field: value
+            queryField: warningStatus
+      - key: regionCode
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Region code
+          - field: value
+            queryField: regionCode
+      - key: state
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: State
+          - field: value
+            queryField: state
+      - key: eventValidity
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Event validity
+          - field: value
+            queryField: eventValidity
+      - key: tsunamiIntensitySoloviev
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            stringValue: Tsunami intensity (Soloviev)
+          - field: value
+            queryField: tsunamiIntensitySoloviev
+      - key: tsunamiMagnitudeAbe
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Tsunami magnitude (Abe)
+          - field: value
+            queryField: tsunamiMagnitudeAbe
+      - key: tsunamiMagnitudeIida
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Tsunami magnitude (Iida)
+          - field: value
+            queryField: tsunamiMagnitudeIida
+      - key: deaths
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Deaths
+          - field: value
+            queryField: deaths
+      - key: deathsDescription
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Deaths description
+          - field: value
+            queryField: deathsDescription
+      - key: injuries
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Injuries
+          - field: value
+            queryField: injuries
+      - key: injuriesDescription
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Injuries description
+          - field: value
+            queryField: injuriesDescription
+      - key: missing
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Missing
+          - field: value
+            queryField: missing
+      - key: missingDescription
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Missing description
+          - field: value
+            queryField: missingDescription
+      - key: housesDamaged
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Houses damaged
+          - field: value
+            queryField: housesDamaged
+      - key: housesDamagedDescription
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Houses damaged description
+          - field: value
+            queryField: housesDamagedDescription
+      - key: housesDestroyed
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Houses destroyed
+          - field: value
+            queryField: housesDestroyed
+      - key: housesDestroyedDescription
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Houses destroyed description
+          - field: value
+            queryField: housesDestroyedDescription
+      - key: totalDeaths
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Total deaths
+          - field: value
+            queryField: totalDeaths
+      - key: totalDeathsDescription
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Total deaths description
+          - field: value
+            queryField: totalDeaths
+      - key: totalInjuries
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Total injuries
+          - field: value
+            queryField: totalInjuries
+      - key: totalInjuriesDescription
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Total injuries description
+          - field: value
+            queryField: totalInjuriesDescription
+      - key: totalMissing
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Total missing
+          - field: value
+            queryField: totalMissing
+      - key: totalMissingDescription
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Total missing description
+          - field: value
+            queryField: totalMissingDescription

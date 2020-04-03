@@ -1,5 +1,6 @@
-_id:
-  "$oid": 5d8280bfe21602118cf78234
+# _id:
+#   "$oid": 5d8280bfe21602118cf78234
+kind: Singleton
 key: quakes
 controller: Content
 action: default
@@ -14,5 +15,31 @@ updatedAt:
     "$numberLong": '1568870143747'
 __v:
   "$numberInt": '0'
-project:
-  "$oid": 5d7dd03c74281342a49bfdaf
+# project:
+#   "$oid": 5d7dd03c74281342a49bfdaf
+pagebricks:
+  - key: quakes
+    areabrickKey: ItemGridStandard
+    bindings: []
+    createdAt: '2019-09-18T19:11:05.461Z'
+    itemMapperFields:
+      - field: title
+        sourceField: name
+      - field: icon
+        expr: "it.noaaTsunami ? 'water' : 'wifi'"
+      - field: iconBackground
+        expr: "it.mw >= 7 ? 'red' : 'silver'"
+      - field: subheader
+        sourceField: originTime
+      - field: linkTo
+        expr: '`/quakes/${it.id}`'
+    queryBindings: []
+    updatedAt: '2019-09-23T01:48:25.637Z'
+    dataExpr: quakes2
+    query: |-
+      {
+        quakes2 {
+          id, mw, name, noaaLocation, noaaTsunami, originTime
+        } 
+      }
+    queryModelKey: Quake

@@ -1,5 +1,6 @@
-_id:
-  "$oid": 5d810e6918695013f093fc81
+# _id:
+#   "$oid": 5d810e6918695013f093fc81
+kind: Singleton
 key: index
 titleStr: QuakeZone
 controller: Content
@@ -12,5 +13,23 @@ updatedAt:
     "$numberLong": '1569231761798'
 __v:
   "$numberInt": '0'
-project:
-  "$oid": 5d7dd03c74281342a49bfdaf
+# project:
+#   "$oid": 5d7dd03c74281342a49bfdaf
+pagebricks:
+  - key: hello
+    areabrickKey: Greeting
+    bindings:
+      - field: who
+        text: Helmy
+  - key: hello2
+    areabrickKey: Greeting
+    bindings:
+      - field: who
+        text: Devi
+  - key: weather
+    areabrickKey: OpenWeather
+    bindings:
+      - field: apiKey
+        text: 3f26d574783375468ea4ba416796d8b9
+      - field: q
+        text: "Bandung, ID"

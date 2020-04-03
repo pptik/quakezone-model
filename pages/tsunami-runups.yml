@@ -1,5 +1,6 @@
-_id:
-  "$oid": 5d84af1d5e93156c683d3c08
+# _id:
+#   "$oid": 5d84af1d5e93156c683d3c08
+kind: Singleton
 key: tsunami-runups
 controller: Content
 action: default
@@ -14,5 +15,69 @@ updatedAt:
     "$numberLong": '1568976669159'
 __v:
   "$numberInt": '0'
-project:
-  "$oid": 5d7dd03c74281342a49bfdaf
+# project:
+#   "$oid": 5d7dd03c74281342a49bfdaf
+pagebricks:
+  - key: tsunamiRunups
+    areabrickKey: ItemGridStandard
+    bindings: []
+    createdAt: '2019-09-20T10:56:08.613Z'
+    itemMapperFields:
+    - field: icon
+      expr: '"water"'
+    - field: title
+      sourceField: locationName
+    - field: subheader
+      expr: '`${it.year}-${it.month}-${it.arrivalDay} ${it.arrivalHour}:${it.arrivalMinute} (${it.waterHeight} meters)`'
+    - field: iconBackground
+      expr: 'it.waterHeight > 3 ? "red" : (it.waterHeight > 1 ? "orange" : "green")'
+    - field: linkTo
+      expr: '`/tsunami-runups/${it.id}`'
+    queryBindings: []
+    updatedAt: '2019-09-23T11:29:54.151Z'
+    dataExpr: tsunamiRunups2
+    query: |-
+      {
+        tsunamiRunups2(filter: {limit: 100, order: "year DESC"}) {
+          arrivalDay
+          arrivalHour
+          arrivalMinute
+          country
+          damageDescription
+          damageMillionsDollars
+          day
+          deaths
+          deathsDescription
+          distanceFromSource
+          doubtful
+          firstMotion
+          horizontalInundation
+          hour
+          housesDamaged
+          housesDamagedDescription
+          housesDestroyed
+          housesDestroyedDescription
+          id
+          infoSource
+          injuries
+          injuriesDescription
+          latitude
+          locationName
+          longitude
+          minute
+          month
+          noaaTsunamiEventId
+          noaaTsunamiRunupId
+          period
+          regionCode
+          second
+          state
+          travelTimeHours
+          travelTimeMinutes
+          tsunamiSource
+          typeOfMeasurement
+          waterHeight
+          year
+        } 
+      }
+    queryModelKey: TsunamiRunup

@@ -1,5 +1,6 @@
-_id:
-  "$oid": 5d88ac20ce89c75cc8f23d85
+# _id:
+#   "$oid": 5d88ac20ce89c75cc8f23d85
+kind: Route
 iconSet: Ionicons
 titleExpr: tsunamiRunup_panel.data && `${tsunamiRunup_panel.data.tsunamiRunup.locationName}
   - Tsunami Runups`
@@ -19,5 +20,77 @@ __v:
 parentPath: tsunami-runups
   # parent:
 #   "$oid": 5d84af1d5e93156c683d3c08
-project:
-  "$oid": 5d7dd03c74281342a49bfdaf
+# project:
+#   "$oid": 5d7dd03c74281342a49bfdaf
+pagebricks:
+  - key: tsunamiRunup_panel
+    areabrickKey: Panel
+    queryModel: TsunamiRunup
+    query: |-
+      query TsunamiRunupDetail($id: String!) {
+        tsunamiRunup: tsunamiRunup(id: $id) {
+          arrivalDay
+          arrivalHour
+          arrivalMinute
+          country
+          damageDescription
+          damageMillionsDollars
+          day
+          deaths
+          deathsDescription
+          distanceFromSource
+          doubtful
+          firstMotion
+          horizontalInundation
+          hour
+          housesDamaged
+          housesDamagedDescription
+          housesDestroyed
+          housesDestroyedDescription
+          id
+          infoSource
+          injuries
+          injuriesDescription
+          latitude
+          locationName
+          longitude
+          minute
+          month
+          noaaTsunamiEventId
+          noaaTsunamiRunupId
+          period
+          regionCode
+          second
+          state
+          travelTimeHours
+          travelTimeMinutes
+          tsunamiSource
+          typeOfMeasurement
+          waterHeight
+          year
+       } 
+      }
+    dataExpr: tsunamiRunup
+    queryBindings:
+      - field: id
+        routerParam: tsunamiRunupId
+  - key: tsunamiRunup_locationName
+    areabrickKey: TextFieldEntry
+    bindings:
+      - field: label
+        stringValue: Location
+      - field: value
+        queryField: locationName
+  - key: tsunamiRunup_epicenter
+    areabrickKey: GeoPointEntry
+    bindings:
+      - field: label
+        stringValue: Tsunami source location
+      - field: featureLat
+        queryField: latitude
+      - field: featureLon
+        queryField: longitude
+      - field: featureName
+        queryField: locationName
+      - field: mapboxApiAccessToken
+        expr: appConfig.MAPBOX_API_ACCESS_TOKEN

@@ -1,5 +1,6 @@
-_id:
-  "$oid": 5d81bee908c7135278efb68f
+# _id:
+#   "$oid": 5d81bee908c7135278efb68f
+kind: Singleton
 key: tips-saat-gempa
 controller: Content
 action: default
@@ -12,7 +13,13 @@ updatedAt:
     "$numberLong": '1568870143747'
 __v:
   "$numberInt": '0'
-project:
-  "$oid": 5d7dd03c74281342a49bfdaf
+# project:
+#   "$oid": 5d7dd03c74281342a49bfdaf
 icon: paw
 iconSet: Ionicons
+pagebricks:
+  - key: hello3
+    areabrickKey: Greeting
+    bindings:
+      - field: who
+        text: Devi
