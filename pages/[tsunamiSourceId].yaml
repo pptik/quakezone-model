@@ -24,8 +24,8 @@ parentPath: tsunami-sources
 #   "$oid": 5d831dc0e9d51209dc4931e0
 pagebricks:
   - key: tsunamiSource_panel
-    areabrickKey: tsunamiSource_panel
-    queryModel: TsunamiSource
+    areabrickKey: Panel
+    queryModelKey: TsunamiSource
     query: |-
       query TsunamiSourceDetail($id: String!) {
         tsunamiSource: tsunamiSources(id: $id) {
@@ -88,14 +88,14 @@ pagebricks:
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Location
+            text: Location
           - field: value
             queryField: locationName
       - key: epicenter
         areabrickKey: GeoPointEntry
         bindings:
           - field: label
-            stringValue: Tsunami source location
+            text: Tsunami source location
           - field: featureLat
             queryField: latitude
           - field: featureLon
@@ -108,99 +108,99 @@ pagebricks:
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Cause
+            text: Cause
           - field: value
             queryField: causeCode
       - key: country
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Country
+            text: Country
           - field: value
             queryField: country
       - key: damageMillionsDollars
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Damage
+            text: Damage
           - field: value
             queryField: damageMillionsDollars
           - field: prefix
-            stringValue: USD
+            text: USD
           - field: suffix
-            stringValue: M
+            text: M
       - key: damageDescription
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Damage description
+            text: Damage description
           - field: value
             queryField: damageDescription
       - key: originTime
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Origin time
+            text: Origin time
           - field: value
-            queryField: originTime
+            expr: '`${it.year}-${it.month}-${it.day} ${it.hour}:${it.minute}:${it.second} UTC`'
       - key: primaryMagnitude
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Primary magnitude
+            text: Primary magnitude
           - field: value
             queryField: primaryMagnitude
       - key: focalDepth
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Focal depth
+            text: Focal depth
           - field: value
             queryField: focalDepth
           - field: suffix
-            stringValue: km
+            text: km
       - key: maxWaterHeight
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Max water height
+            text: Max water height
           - field: value
             queryField: maxWaterHeight
           - field: suffix
-            stringValue: m
+            text: m
       - key: warningStatus
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Warning status
+            text: Warning status
           - field: value
             queryField: warningStatus
       - key: regionCode
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Region code
+            text: Region code
           - field: value
             queryField: regionCode
       - key: state
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: State
+            text: State
           - field: value
             queryField: state
       - key: eventValidity
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Event validity
+            text: Event validity
           - field: value
             queryField: eventValidity
       - key: tsunamiIntensitySoloviev
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Tsunami intensity (Soloviev)
+            text: Tsunami intensity (Soloviev)
           - field: value
             queryField: tsunamiIntensitySoloviev
       - key: tsunamiMagnitudeAbe

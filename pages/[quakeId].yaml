@@ -24,6 +24,7 @@ titleExpr: quakeDetail_panel.data && `${quakeDetail_panel.data.quake.name} - Ear
 pagebricks:
   - key: panel  
     areabrickKey: Panel
+    queryModelKey: Quake
     query: |-
       query QuakeDetail($id: String!) {
         quake(id: $id) {
@@ -38,137 +39,138 @@ pagebricks:
     dataExpr: quake
     queryBindings:
       - field: id
-        sourceType: router
-        sourceField: quakeId
+        routerParam: quakeId
     children:
       - key: name
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Name
+            text: Name
           - field: value
             queryField: name
+      - key: usgsEpicenter
+        areabrickKey: GeoPointEntry
+        bindings:
+          - field: label
+            text: Epicenter (USGS)
+          - field: featurePoint
+            queryField: usgsEpicenter
+          - field: featureName
+            queryField: name
+          - field: mapboxApiAccessToken
+            expr: appConfig.MAPBOX_API_ACCESS_TOKEN
       - key: originTime
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Origin time
+            text: Origin time
           - field: value
             queryField: originTime
       - key: usgsOriginTime
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: USGS origin time
+            text: USGS origin time
           - field: value
             queryField: usgsOriginTime
       - key: irisOriginTime
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: IRIS origin time
+            text: IRIS origin time
           - field: value
             queryField: irisOriginTime
       - key: noaaLocation
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: NOAA Location
+            text: NOAA Location
           - field: value
             queryField: noaaLocation
       - key: noaaTsunami
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Tsunami (NOAA)
+            text: Tsunami (NOAA)
           - field: value
             queryField: noaaTsunami
       - key: noviantyRuptureDuration
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Novianty rupture duration
+            text: Novianty rupture duration
           - field: value
             queryField: noviantyRuptureDuration
           - field: suffix
-            stringValue: s
+            text: s
       - key: noviantyPWaveDominantPeriod
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Novianty P-wave dominant period
+            text: Novianty P-wave dominant period
           - field: value
             queryField: noviantyPWaveDominantPeriod
           - field: suffix
-            stringValue: s
+            text: s
       - key: noviantyT0xtd
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: T0 × Td (Novianty)
+            text: T0 × Td (Novianty)
           - field: value
             queryField: noviantyT0xtd
       - key: mw
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Mw
+            text: Mw
           - field: value
             queryField: mw
       - key: noviantyMw
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Mw (Novianty)
+            text: Mw (Novianty)
           - field: value
             queryField: noviantyMw
       - key: usgsMw
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Mw (USGS)
+            text: Mw (USGS)
           - field: value
             queryField: usgsMw
       - key: irisMw
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: Mw (IRIS)
+            text: Mw (IRIS)
           - field: value
             queryField: irisMw
       - key: noaaTsunamiEventId
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: NOAA Tsunami Event ID
+            text: NOAA Tsunami Event ID
           - field: value
             queryField: noaaTsunamiEventId
       - key: usgsDepth
         areabrickKey: TextFieldEntry
         bindings:
           - field: label
-            stringValue: USGS depth
+            text: USGS depth
           - field: value
             queryField: usgsDepth
           - field: suffix
-            stringValue: km
-      - key: usgsEpicenter
-        areabrickKey: GeoPointEntry
-        bindings:
-          - field: label
-            stringValue: Epicenter (USGS)
-          - field: featurePoint
-            queryField: usgsEpicenter
-          - field: featureName
-            queryField: name
+            text: km
       - key: usgsId
         areabrickKey: LinkEntry
         bindings:
           - field: label
-            stringValue: USGS event ID
+            text: USGS event ID
           - field: title
             queryField: usgsId
           - field: href
             expr: '`https://earthquake.usgs.gov/earthquakes/eventpage/${quakeDetail_panel.data.quake.usgsId}/executive`'
           - field: target
-            stringValue: _blank
+            text: _blank

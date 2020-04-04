@@ -7,6 +7,7 @@ action: default
 titleStr: Tsunami Runups
 icon: water
 iconSet: Ionicons
+pos: 5
 createdAt:
   "$date":
     "$numberLong": '1568976669136'

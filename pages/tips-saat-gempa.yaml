@@ -17,6 +17,7 @@ __v:
 #   "$oid": 5d7dd03c74281342a49bfdaf
 icon: paw
 iconSet: Ionicons
+pos: 2
 pagebricks:
   - key: hello3
     areabrickKey: Greeting

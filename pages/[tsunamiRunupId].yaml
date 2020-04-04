@@ -2,8 +2,7 @@
 #   "$oid": 5d88ac20ce89c75cc8f23d85
 kind: Route
 iconSet: Ionicons
-titleExpr: tsunamiRunup_panel.data && `${tsunamiRunup_panel.data.tsunamiRunup.locationName}
-  - Tsunami Runups`
+titleExpr: tsunamiRunup_panel.data && `${tsunamiRunup_panel.data.tsunamiRunup.locationName} - Tsunami Runups`
 action: detail
 icon: water
 titleStr: Tsunami Runup Detail
@@ -25,7 +24,7 @@ parentPath: tsunami-runups
 pagebricks:
   - key: tsunamiRunup_panel
     areabrickKey: Panel
-    queryModel: TsunamiRunup
+    queryModelKey: TsunamiRunup
     query: |-
       query TsunamiRunupDetail($id: String!) {
         tsunamiRunup: tsunamiRunup(id: $id) {
@@ -74,23 +73,24 @@ pagebricks:
     queryBindings:
       - field: id
         routerParam: tsunamiRunupId
-  - key: tsunamiRunup_locationName
-    areabrickKey: TextFieldEntry
-    bindings:
-      - field: label
-        stringValue: Location
-      - field: value
-        queryField: locationName
-  - key: tsunamiRunup_epicenter
-    areabrickKey: GeoPointEntry
-    bindings:
-      - field: label
-        stringValue: Tsunami source location
-      - field: featureLat
-        queryField: latitude
-      - field: featureLon
-        queryField: longitude
-      - field: featureName
-        queryField: locationName
-      - field: mapboxApiAccessToken
-        expr: appConfig.MAPBOX_API_ACCESS_TOKEN
+    children:
+      - key: locationName
+        areabrickKey: TextFieldEntry
+        bindings:
+          - field: label
+            text: Location
+          - field: value
+            queryField: locationName
+      - key: epicenter
+        areabrickKey: GeoPointEntry
+        bindings:
+          - field: label
+            text: Tsunami source location
+          - field: featureLat
+            queryField: latitude
+          - field: featureLon
+            queryField: longitude
+          - field: featureName
+            queryField: locationName
+          - field: mapboxApiAccessToken
+            expr: appConfig.MAPBOX_API_ACCESS_TOKEN

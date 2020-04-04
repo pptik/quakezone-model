@@ -7,6 +7,7 @@ action: default
 titleStr: Tsunami Sources
 icon: water
 iconSet: Ionicons
+pos: 4
 createdAt:
   "$date":
     "$numberLong": '1568873920688'
@@ -89,5 +90,5 @@ pagebricks:
           noaaTsunamiEventId
           infoSource
        } 
-      }      
+      }
     queryModelKey: TsunamiSource

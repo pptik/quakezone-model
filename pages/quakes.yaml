@@ -7,6 +7,7 @@ action: default
 titleStr: Earthquakes
 iconSet: Ionicons
 icon: wifi
+pos: 3
 createdAt:
   "$date":
     "$numberLong": '1568833727285'
@@ -36,7 +37,7 @@ pagebricks:
     queryBindings: []
     updatedAt: '2019-09-23T01:48:25.637Z'
     dataExpr: quakes2
-    query: |-
+    query: |
       {
         quakes2 {
           id, mw, name, noaaLocation, noaaTsunami, originTime
