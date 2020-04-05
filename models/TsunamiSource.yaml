@@ -58,7 +58,7 @@ properties:
     description: Minute of tsunami source event
   - name: second
     title: Second
-    type: integer
+    type: double
     description: Second of tsunami source event
   - name: eventValidity
     title: Event validity

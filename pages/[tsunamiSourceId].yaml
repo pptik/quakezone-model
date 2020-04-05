@@ -27,8 +27,8 @@ pagebricks:
     areabrickKey: Panel
     queryModelKey: TsunamiSource
     query: |-
-      query TsunamiSourceDetail($id: String!) {
-        tsunamiSource: tsunamiSources(id: $id) {
+      query TsunamiSourceDetail($id: ID!) {
+        tsunamiSource: tsunamiSource(id: $id) {
           causeCode
           country
           damageDescription

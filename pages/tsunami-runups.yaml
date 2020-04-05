@@ -36,49 +36,54 @@ pagebricks:
       expr: '`/tsunami-runups/${it.id}`'
     queryBindings: []
     updatedAt: '2019-09-23T11:29:54.151Z'
-    dataExpr: tsunamiRunups2
+    dataExpr: |-
+      tsunamiRunups.edges.map((it: any) => it.node)
     query: |-
       {
-        tsunamiRunups2(filter: {limit: 100, order: "year DESC"}) {
-          arrivalDay
-          arrivalHour
-          arrivalMinute
-          country
-          damageDescription
-          damageMillionsDollars
-          day
-          deaths
-          deathsDescription
-          distanceFromSource
-          doubtful
-          firstMotion
-          horizontalInundation
-          hour
-          housesDamaged
-          housesDamagedDescription
-          housesDestroyed
-          housesDestroyedDescription
-          id
-          infoSource
-          injuries
-          injuriesDescription
-          latitude
-          locationName
-          longitude
-          minute
-          month
-          noaaTsunamiEventId
-          noaaTsunamiRunupId
-          period
-          regionCode
-          second
-          state
-          travelTimeHours
-          travelTimeMinutes
-          tsunamiSource
-          typeOfMeasurement
-          waterHeight
-          year
+        tsunamiRunups(orderBy: {sort: "year", direction: desc}, first: 100) {
+          edges {
+            node {
+              arrivalDay
+              arrivalHour
+              arrivalMinute
+              country
+              damageDescription
+              damageMillionsDollars
+              day
+              deaths
+              deathsDescription
+              distanceFromSource
+              doubtful
+              firstMotion
+              horizontalInundation
+              hour
+              housesDamaged
+              housesDamagedDescription
+              housesDestroyed
+              housesDestroyedDescription
+              id
+              infoSource
+              injuries
+              injuriesDescription
+              latitude
+              locationName
+              longitude
+              minute
+              month
+              noaaTsunamiEventId
+              noaaTsunamiRunupId
+              period
+              regionCode
+              second
+              state
+              travelTimeHours
+              travelTimeMinutes
+              tsunamiSource
+              typeOfMeasurement
+              waterHeight
+              year
+            }
+          }
         } 
       }
     queryModelKey: TsunamiRunup

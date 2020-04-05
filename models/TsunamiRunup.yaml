@@ -57,7 +57,7 @@ properties:
     type: integer
   - name: second
     title: Second (source)
-    type: integer
+    type: double
   - name: doubtful
     title: Doubtful runup observation
     type: string

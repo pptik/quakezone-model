@@ -13,15 +13,15 @@ properties:
   - name: originTime
     title: Origin time
     type: datetime
-    formatString: PPpppp
+    formatString: fff
   - name: usgsOriginTime
     title: Origin time (USGS)
     type: datetime
-    formatString: PPpppp
+    formatString: fff
   - name: irisOriginTime
     title: Origin time (IRIS)
     type: datetime
-    formatString: PPpppp
+    formatString: fff
   - name: noaaLocation
     title: Location (NOAA)
     type: string

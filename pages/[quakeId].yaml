@@ -20,20 +20,20 @@ parentPath: quakes
 #   "$oid": 5d8280bfe21602118cf78234
 # project:
 #   "$oid": 5d7dd03c74281342a49bfdaf
-titleExpr: quakeDetail_panel.data && `${quakeDetail_panel.data.quake.name} - Earthquakes`
+titleExpr: panel.data && `${panel.data.quake.name} - Earthquakes`
 pagebricks:
   - key: panel  
     areabrickKey: Panel
     queryModelKey: Quake
     query: |-
-      query QuakeDetail($id: String!) {
+      query QuakeDetail($id: ID!) {
         quake(id: $id) {
           id, usgsId, name, usgsName,
           originTime, usgsOriginTime, irisOriginTime,
           noaaLocation, noaaTsunami,
           noviantyRuptureDuration, noviantyPWaveDominantPeriod, noviantyT0xtd, noviantyMw,
           mw, usgsMw, irisMw, noaaTsunamiEventId, unknown1,
-          usgsDepth, collectionName, collectionPos, usgsEpicenter
+          usgsDepth, collectionName, collectionPos, usgsEpicenter { type, coordinates }
         }
       }
     dataExpr: quake
@@ -171,6 +171,6 @@ pagebricks:
           - field: title
             queryField: usgsId
           - field: href
-            expr: '`https://earthquake.usgs.gov/earthquakes/eventpage/${quakeDetail_panel.data.quake.usgsId}/executive`'
+            expr: '`https://earthquake.usgs.gov/earthquakes/eventpage/${panel.data.quake.usgsId}/executive`'
           - field: target
             text: _blank

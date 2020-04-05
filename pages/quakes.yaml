@@ -36,11 +36,16 @@ pagebricks:
         expr: '`/quakes/${it.id}`'
     queryBindings: []
     updatedAt: '2019-09-23T01:48:25.637Z'
-    dataExpr: quakes2
+    dataExpr: |-
+      quakes.edges.map((it: any) => it.node)
     query: |
       {
-        quakes2 {
-          id, mw, name, noaaLocation, noaaTsunami, originTime
+        quakes {
+          edges {
+            node {
+              id, mw, name, noaaLocation, noaaTsunami, originTime
+            }
+          }
         } 
       }
     queryModelKey: Quake
