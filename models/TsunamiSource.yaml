@@ -55,7 +55,7 @@ properties:
   - name: minute
     title: Minute
     type: integer
-    description: Hour of tsunami source event
+    description: Minute of tsunami source event
   - name: second
     title: Second
     type: integer

@@ -1,5 +1,5 @@
 name: Quake
-description:
+description: Information on earthquakes.
 properties:
   - name: name
     title: name
